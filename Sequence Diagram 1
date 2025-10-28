@@ -1,0 +1,21 @@
+sequenceDiagram
+   participant Student
+   participant FocusTimeSystem
+   participant TimerService
+   participant NotificationService
+
+
+   Student->>FocusTimeSystem: Start Focus Session Request
+   activate FocusTimeSystem
+   FocusTimeSystem->>Student: Display Session Options
+   Student->>FocusTimeSystem: Select Duration & Start
+   FocusTimeSystem->>TimerService: Initialize Timer
+   activate TimerService
+   TimerService-->>FocusTimeSystem: Timer Started
+   deactivate TimerService
+   FocusTimeSystem->>NotificationService: Schedule Focus Notifications
+   activate NotificationService
+   NotificationService-->>FocusTimeSystem: Notifications Scheduled
+   deactivate NotificationService
+   FocusTimeSystem-->>Student: Confirm Session Start
+   deactivate FocusTimeSystem
