@@ -1,0 +1,22 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[UI Renderer]
+  end
+
+
+  subgraph useCases
+      U1((Low Motion / Fidget-Reducing Visuals))
+      U2((Reduce Animation Intensity))
+      U3((Enable Static Themes))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<extend>>| U3
+
