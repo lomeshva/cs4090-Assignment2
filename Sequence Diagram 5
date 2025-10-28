@@ -1,0 +1,19 @@
+sequenceDiagram
+   participant Student
+   participant FocusTimeSystem
+   participant SyncService
+   participant CloudServer
+
+
+   FocusTimeSystem->>SyncService: Initiate Data Sync
+   activate FocusTimeSystem
+   activate SyncService
+   SyncService->>CloudServer: Send Session Data
+   activate CloudServer
+   CloudServer--x SyncService: Network Error
+   deactivate CloudServer
+   SyncService-->>FocusTimeSystem: Notify Sync Failure
+   deactivate SyncService
+   FocusTimeSystem-->>Student: Display Error Message
+   FocusTimeSystem->>FocusTimeSystem: Save Data Locally for Retry
+   deactivate FocusTimeSystem
