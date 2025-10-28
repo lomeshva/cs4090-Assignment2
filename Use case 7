@@ -1,0 +1,24 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Session Controller]
+  end
+
+
+  subgraph useCases
+      U1((Micro-Tasks per Session))
+      U2((Add Micro-Task))
+      U3((Complete Micro-Task))
+      U4((Track Progress))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+  B --> U4
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<include>>| U3
+  U1 -->|<<include>>| U4
