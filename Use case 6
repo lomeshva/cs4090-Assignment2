@@ -1,0 +1,27 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Preset Manager]
+  end
+
+
+  subgraph useCases
+      U1((Create / Manage Session Presets))
+      U2((Save Preset))
+      U3((Edit Preset))
+      U4((Delete Preset))
+      U5((Select Preset))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+  B --> U4
+  B --> U5
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<include>>| U3
+  U1 -->|<<include>>| U4
+  U1 -->|<<extend>>| U5
