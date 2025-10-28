@@ -1,0 +1,21 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Break Content Service]
+  end
+
+
+  subgraph useCases
+      U1((Guided Break Suggestions))
+      U2((Display Stretching Tip))
+      U3((Display Breathing Exercise))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+
+
+  U1 -->|<<extend>>| U2
+  U1 -->|<<extend>>| U3
