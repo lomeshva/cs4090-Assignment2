@@ -1,0 +1,24 @@
+graph TD
+ subgraph actors
+     A[Student]
+     B[Timer Service]
+     C[UI Controller]
+ end
+
+
+
+
+ subgraph useCases
+     U1((Start Study Session))
+     U2((Initialize Timer))
+     U3((Display Focus UI))
+ end
+ A --> U1
+ B --> U2
+ C --> U3
+
+
+
+
+ U1 -->|<<include>>| U2
+ U1 -->|<<include>>| U3
