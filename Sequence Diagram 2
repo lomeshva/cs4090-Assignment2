@@ -1,0 +1,19 @@
+sequenceDiagram
+   participant Student
+   participant FocusTimeSystem
+   participant TimerService
+   participant Database
+
+
+   Student->>FocusTimeSystem: End Focus Session Request
+   activate FocusTimeSystem
+   FocusTimeSystem->>TimerService: Stop Timer
+   activate TimerService
+   TimerService-->>FocusTimeSystem: Elapsed Time Data
+   deactivate TimerService
+   FocusTimeSystem->>Database: Store Session Data
+   activate Database
+   Database-->>FocusTimeSystem: Confirm Save
+   deactivate Database
+   FocusTimeSystem-->>Student: Display Summary & Session Stats
+   deactivate FocusTimeSystem
