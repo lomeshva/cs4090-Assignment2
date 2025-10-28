@@ -1,0 +1,25 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Timer Service]
+      C[UI Controller]
+  end
+
+
+  subgraph useCases
+      U1((Auto-Resume Prompt for Short Interruptions))
+      U2((Detect Short Pause))
+      U3((Prompt Auto-Resume))
+      U4((Resume Session))
+  end
+
+
+  A --> U1
+  B --> U2
+  C --> U3
+  B --> U4
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<extend>>| U3
+  U3 -->|<<include>>| U4
