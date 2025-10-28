@@ -1,0 +1,21 @@
+graph TD
+  subgraph actors
+      A[New User]
+      B[Onboarding Controller]
+  end
+
+
+  subgraph useCases
+      U1((Quick Guided Onboarding))
+      U2((Set Session Lengths))
+      U3((Set Accessibility Preferences))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<include>>| U3
