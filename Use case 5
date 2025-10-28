@@ -1,0 +1,24 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Settings Service]
+  end
+
+
+  subgraph useCases
+      U1((Set Accessibility Preferences))
+      U2((Select Font and Size))
+      U3((Choose Color Palette))
+      U4((Toggle Low Motion))
+  end
+
+
+  A --> U1
+  B --> U2
+  B --> U3
+  B --> U4
+
+
+  U1 -->|<<include>>| U2
+  U1 -->|<<include>>| U3
+  U1 -->|<<extend>>| U4
