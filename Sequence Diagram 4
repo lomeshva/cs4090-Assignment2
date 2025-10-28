@@ -1,0 +1,24 @@
+sequenceDiagram
+   participant Student
+   participant FocusTimeSystem
+   participant TimerService
+
+
+   Student->>FocusTimeSystem: Pause Focus Session
+   activate FocusTimeSystem
+   FocusTimeSystem->>TimerService: Pause Timer
+   activate TimerService
+   TimerService-->>FocusTimeSystem: Timer Paused
+   deactivate TimerService
+   FocusTimeSystem-->>Student: Confirm Pause
+   deactivate FocusTimeSystem
+
+
+   Student->>FocusTimeSystem: Resume Focus Session
+   activate FocusTimeSystem
+   FocusTimeSystem->>TimerService: Resume Timer
+   activate TimerService
+   TimerService-->>FocusTimeSystem: Timer Running
+   deactivate TimerService
+   FocusTimeSystem-->>Student: Session Resumed
+   deactivate FocusTimeSystem
