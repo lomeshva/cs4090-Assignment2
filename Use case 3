@@ -1,0 +1,22 @@
+graph TD
+  subgraph actors
+      A[Student]
+      B[Notification Service]
+      C[Timer Service]
+  end
+
+
+  subgraph useCases
+      U1((Adaptive Reminder Nudge))
+      U2((Send Audio/Visual Alert))
+      U3((Check Reminder Interval))
+  end
+
+
+  A --> U1
+  B --> U2
+  C --> U3
+
+
+  U3 -->|<<include>>| U1
+  U1 -->|<<include>>| U2
