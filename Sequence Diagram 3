@@ -1,0 +1,19 @@
+sequenceDiagram
+   participant Student
+   participant FocusTimeSystem
+   participant AuthService
+   participant Database
+
+
+   Student->>FocusTimeSystem: Enter Credentials
+   activate FocusTimeSystem
+   FocusTimeSystem->>AuthService: Validate Credentials
+   activate AuthService
+   AuthService->>Database: Query User Data
+   activate Database
+   Database-->>AuthService: Return User Info
+   deactivate Database
+   AuthService-->>FocusTimeSystem: Authentication Result
+   deactivate AuthService
+   FocusTimeSystem-->>Student: Grant Access / Show Dashboard
+   deactivate FocusTimeSystem
