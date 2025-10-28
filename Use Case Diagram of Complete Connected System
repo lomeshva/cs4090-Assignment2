@@ -1,0 +1,55 @@
+flowchart TB
+
+
+   Student([Student])
+   Educator([Educator])
+   Caregiver([Caregiver])
+   NotificationService([Notification Service])
+   AnalyticsService([Analytics Service])
+
+
+  
+   subgraph FocusTimeSystem [FocusTime Study App]
+       U1((Start Study Session))
+       U2((Pause / Resume / Stop Session))
+       U3((Adaptive Reminder Nudge))
+       U4((Quick Guided Onboarding))
+       U5((Set Accessibility Preferences))
+       U6((Create / Manage Session Presets))
+       U7((Dashboard — Study History))
+       U8((Export Session Data))
+       U9((Weekly Goals & Reminders))
+       U10((Privacy & Consent Controls))
+   end
+
+
+   Student --> U1
+   Student --> U2
+   Student --> U3
+   Student --> U4
+   Student --> U5
+   Student --> U6
+   Student --> U7
+   Student --> U8
+   Student --> U9
+   Student --> U10
+
+
+   Educator --> U9
+   Educator --> U10
+
+
+   Caregiver --> U10
+
+
+   NotificationService --> U3
+   AnalyticsService --> U7
+
+
+   U1 -->|<<include>>| U2
+   U1 -->|<<extend>>| U3
+   U4 -->|<<include>>| U5
+   U6 -->|<<include>>| U1
+   U7 -->|<<include>>| U8
+   U9 -->|<<extend>>| U7
+   U10 -->|<<include>>| U9
